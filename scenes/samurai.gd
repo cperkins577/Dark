@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+class_name Player
+
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"] 
 const SPEED = 150.0
-const JUMP_VELOCITY = -200.0
+const JUMP_VELOCITY = -400.0
 var is_attacking = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -49,3 +51,4 @@ func attack():
 func _on_animation_tree_animation_finished(anim_name):
 	if anim_name == "attack":
 		is_attacking = false
+

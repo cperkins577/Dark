@@ -1,7 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsi3u0mbrgxug"]
+[gd_scene load_steps=18 format=3 uid="uid://bsi3u0mbrgxug"]
 
 [ext_resource type="Script" path="res://scenes/samurai.gd" id="1_3dbv8"]
 [ext_resource type="Texture2D" uid="uid://jn1gok6eals4" path="res://art/DARK Edition/Sprites/Samurai/Sci-fi Samurai with Sword 95x49.png" id="1_5x3vy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0t32"]
+size = Vector2(20, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkhql"]
 size = Vector2(19, 27)
@@ -304,7 +307,15 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Samurai" type="CharacterBody2D"]
 position = Vector2(416, 310)
+collision_layer = 2
+collision_mask = 25
 script = ExtResource("1_3dbv8")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_k0t32")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kkhql")
@@ -326,5 +337,8 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_gx5k3")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
