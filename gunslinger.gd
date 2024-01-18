@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"] 
 const SPEED = 150.0
@@ -15,18 +17,24 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	#Gun aiming
-	animation_tree["parameters/BlendSpace2D/blend_position"] = get_local_mouse_position()
+	animation_tree["parameters/Idle/blend_position"] = get_local_mouse_position()
+	animation_tree["parameters/Walk/blend_position"] = get_local_mouse_position()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	#Handle shoot
+	if Input.is_action_just_pressed("attack"):
+		$Gun1.shoot()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
-		
+		state_machine.travel("Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		state_machine.travel("Idle")
 	move_and_slide()

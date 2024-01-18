@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpkpxfe8oct6l"]
+[gd_scene load_steps=22 format=3 uid="uid://cpkpxfe8oct6l"]
 
 [ext_resource type="Script" path="res://gunslinger.gd" id="1_2jgye"]
 [ext_resource type="Texture2D" uid="uid://b1vf4fgosik5a" path="res://art/DARK Edition/Sprites/Gunslinger Hero/Gunslinger/Gunslinger 48x48 Sprite Sheet no weapons for sprite stacking.png" id="1_ud23m"]
-[ext_resource type="PackedScene" uid="uid://cn7u4jh2mvxvs" path="res://gun_1.tscn" id="2_g658k"]
+[ext_resource type="PackedScene" uid="uid://cn7u4jh2mvxvs" path="res://scenes/gun1/gun_1.tscn" id="3_ps8se"]
 [ext_resource type="Texture2D" uid="uid://dn8t5p73w38t" path="res://art/DARK Edition/Sprites/Gunslinger Hero/Gun/Guns Sprite Sheet 32x32.png" id="4_25hn0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floir"]
@@ -518,12 +518,288 @@ tracks/10/keys = {
 "values": [Vector2(1, -1)]
 }
 
+[sub_resource type="Animation" id="Animation_u0lae"]
+resource_name = "walk_left"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ud23m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Gun1:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_25hn0")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Gun1:hframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Gun1:vframes")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Gun1:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Gun1:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -2)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Gun1:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_gmrus"]
+resource_name = "walk_right"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ud23m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Gun1:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_25hn0")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Gun1:hframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Gun1:vframes")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Gun1:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Gun1:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-2, -2)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Gun1:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bpc4v"]
 _data = {
 "RESET": SubResource("Animation_kouad"),
 "idle_left": SubResource("Animation_k574g"),
 "idle_right": SubResource("Animation_e37vq"),
-"walk": SubResource("Animation_khwn2")
+"walk": SubResource("Animation_khwn2"),
+"walk_left": SubResource("Animation_u0lae"),
+"walk_right": SubResource("Animation_gmrus")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lgbr3"]
@@ -539,16 +815,35 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_1fi68")
 blend_point_1/pos = Vector2(1, 0)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c5v0w"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ejq2y"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gior6"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_c5v0w")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ejq2y")
+blend_point_1/pos = Vector2(1, 0)
+blend_mode = 1
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_egwc4"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dwse8"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_136n5"]
-states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_ueewk")
-states/BlendSpace2D/position = Vector2(383, 105)
-transitions = ["Start", "BlendSpace2D", SubResource("AnimationNodeStateMachineTransition_egwc4")]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_ueewk")
+states/Idle/position = Vector2(383, 105)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_gior6")
+states/Walk/position = Vector2(570, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_egwc4"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_dwse8")]
 
 [node name="Gunslinger" type="CharacterBody2D"]
 position = Vector2(154, 93)
+collision_layer = 2
+collision_mask = 25
 script = ExtResource("1_2jgye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -560,10 +855,11 @@ texture = ExtResource("1_ud23m")
 hframes = 9
 vframes = 13
 
-[node name="Gun1" parent="." instance=ExtResource("2_g658k")]
+[node name="Gun1" parent="." instance=ExtResource("3_ps8se")]
 position = Vector2(-2, -2)
 scale = Vector2(1, -1)
 offset = Vector2(12, -1)
+frame = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -576,7 +872,8 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_136n5")
 anim_player = NodePath("../AnimationPlayer")
-parameters/BlendSpace2D/blend_position = Vector2(0.6336, -1.05291)
+parameters/Idle/blend_position = Vector2(0.6336, -1.05291)
+parameters/Walk/blend_position = Vector2(-0.992, 0.0238096)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
