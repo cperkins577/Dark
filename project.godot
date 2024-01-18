@@ -54,6 +54,7 @@ enter_door={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Doors"
 2d_physics/layer_5="Traps"
+2d_physics/layer_6="Projectile"
 
 [rendering]
 
