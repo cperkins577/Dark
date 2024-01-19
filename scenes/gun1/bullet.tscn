@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://delum0w6cox73" path="res://art/DARK Edition/Sprites/Gunslinger Hero/Gun/Projectiles 16x16 Sprite Sheet.png" id="2_jy7gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huv35"]
-size = Vector2(5, 3)
+size = Vector2(10.0339, 5.94604)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xo0yx"]
 atlas = ExtResource("2_jy7gg")
@@ -88,12 +88,15 @@ collision_mask = 5
 script = ExtResource("1_vclqx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.00071907, 0.00071764)
+position = Vector2(0.0657196, -0.00443363)
 shape = SubResource("RectangleShape2D_huv35")
 
 [node name="Projectile" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.00715256, -0.0191708)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_e2yk3")
 animation = &"Fire"
 autoplay = "Fire"
 offset = Vector2(0.49213, -0.50639)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
