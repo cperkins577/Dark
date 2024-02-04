@@ -19,6 +19,9 @@ func _physics_process(delta):
 	#Gun aiming
 	animation_tree["parameters/Idle/blend_position"] = get_local_mouse_position()
 	animation_tree["parameters/Walk/blend_position"] = get_local_mouse_position()
+	animation_tree["parameters/Jump_up/blend_position"] = get_local_mouse_position()
+	animation_tree["parameters/Jump_middle/blend_position"] = get_local_mouse_position()
+	animation_tree["parameters/Falling/blend_position"] = get_local_mouse_position()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -33,8 +36,13 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
-		state_machine.travel("Walk")
+		if is_on_floor():
+			#state_machine.travel("Walk")
+			pass
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		state_machine.travel("Idle")
+		if is_on_floor():
+			#state_machine.travel("Idle")
+			pass
 	move_and_slide()
+

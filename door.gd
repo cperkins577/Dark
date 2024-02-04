@@ -14,7 +14,6 @@ func _process(_delta):
 
 func _on_door_body_entered(body: CharacterBody2D)->void:
 	if body is Player:
-		print("entered")
 		player = body
 
 func _on_door_body_exited(body: CharacterBody2D)->void:
