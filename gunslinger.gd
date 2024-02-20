@@ -5,7 +5,7 @@ class_name Player
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"] 
 const SPEED = 150.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -200.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,6 +26,14 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		state_machine.travel("Jump_up")
+	
+	var orig_y = velocity.y
+	if is_on_floor() == false:
+		if orig_y < 0:
+			state_machine.travel("Jump_up")
+		else:
+			state_machine.travel("Falling")
 
 	#Handle shoot
 	if Input.is_action_just_pressed("attack"):
@@ -37,12 +45,10 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		if is_on_floor():
-			#state_machine.travel("Walk")
-			pass
+			state_machine.travel("Walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor():
-			#state_machine.travel("Idle")
-			pass
+			state_machine.travel("Idle")
 	move_and_slide()
 
