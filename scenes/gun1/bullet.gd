@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var speed = 500
+@export var bullet_dam = 10
 var travelled_distance = 0
 
 func _physics_process(delta):
@@ -18,5 +19,9 @@ func _on_body_entered(body):
 	$Projectile.scale.y = 1
 	$Projectile.play("Hit")
 	if body is Enemy:
-		body.take_damage()
+		body.take_damage(bullet_dam)
 	
+
+
+func _on_projectile_animation_finished():
+	queue_free()

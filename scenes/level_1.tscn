@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4pm34uhxckhg"]
+[gd_scene load_steps=7 format=3 uid="uid://b4pm34uhxckhg"]
 
 [ext_resource type="Texture2D" uid="uid://ddbccmwkedx5o" path="res://art/DARK Edition/Tileset/DARK Edition Tileset with background.png" id="1_46s6i"]
 [ext_resource type="PackedScene" uid="uid://cpkpxfe8oct6l" path="res://gunslinger_player.tscn" id="3_13djh"]
 [ext_resource type="PackedScene" uid="uid://bvlnxmtxrj2be" path="res://door.tscn" id="3_xc7hh"]
+[ext_resource type="PackedScene" uid="uid://ud7dnkqvxq0s" path="res://flower_enemy.tscn" id="4_kii6k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nk2qh"]
 resource_name = "Dark_Background"
@@ -894,3 +895,6 @@ connected_door = NodePath("../Door2-3")
 
 [node name="Gunslinger" parent="." instance=ExtResource("3_13djh")]
 position = Vector2(189, 483)
+
+[node name="Flower_enemy" parent="." instance=ExtResource("4_kii6k")]
+position = Vector2(349, 147)

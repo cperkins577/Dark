@@ -100,3 +100,4 @@ autoplay = "Fire"
 offset = Vector2(0.49213, -0.50639)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Projectile" to="." method="_on_projectile_animation_finished"]
