@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://ud7dnkqvxq0s"]
 
-[ext_resource type="Script" path="res://Flower_enemy.gd" id="1_wj3wj"]
+[ext_resource type="Script" path="res://scenes/enemies/Flower/Flower_enemy.gd" id="1_wj3wj"]
 [ext_resource type="Texture2D" uid="uid://crtnu2ljqira" path="res://art/DARK Edition/Sprites/Flower Enemy/attack 32x32.png" id="2_wnek3"]
 [ext_resource type="Texture2D" uid="uid://cbtlji2542fmh" path="res://art/DARK Edition/Sprites/Flower Enemy/death 32x32.png" id="3_imdrp"]
 [ext_resource type="Texture2D" uid="uid://wocf00n2b818" path="res://art/DARK Edition/Sprites/Flower Enemy/hit 32x32.png" id="4_r31eo"]

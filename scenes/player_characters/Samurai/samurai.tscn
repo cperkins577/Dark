@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bsi3u0mbrgxug"]
 
-[ext_resource type="Script" path="res://scenes/samurai.gd" id="1_3dbv8"]
+[ext_resource type="Script" path="res://scenes/player_characters/Samurai/samurai.gd" id="1_3dbv8"]
 [ext_resource type="Texture2D" uid="uid://jn1gok6eals4" path="res://art/DARK Edition/Sprites/Samurai/Sci-fi Samurai with Sword 95x49.png" id="1_5x3vy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0t32"]

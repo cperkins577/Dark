@@ -9,7 +9,7 @@ func _process(_delta):
 func shoot():
 	animation_player.stop()
 	animation_player.play("shoot")
-	const BULLET = preload("res://scenes/gun1/bullet.tscn")
+	const BULLET = preload("res://scenes/player_characters/Gunslinger/gun1/bullet.tscn")
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position = %Barrel.global_position
 	new_bullet.global_rotation = %Barrel.global_rotation

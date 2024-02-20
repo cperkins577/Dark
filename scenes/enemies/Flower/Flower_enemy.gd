@@ -8,6 +8,7 @@ var player_chase = false
 var player = null
 
 var taking_damage = false
+signal damage_done
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -54,4 +55,3 @@ func take_damage(dam):
 	if health <= 0:
 		$AnimatedSprite2D.play("death")
 		queue_free()
-	taking_damage = false

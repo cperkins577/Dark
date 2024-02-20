@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvlnxmtxrj2be"]
 
-[ext_resource type="Script" path="res://door.gd" id="1_p1ljm"]
+[ext_resource type="Script" path="res://scenes/level assets/door/door.gd" id="1_p1ljm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0arky"]
 size = Vector2(22, 33)

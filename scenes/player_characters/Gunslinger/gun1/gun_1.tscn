@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cn7u4jh2mvxvs"]
 
-[ext_resource type="Texture2D" uid="uid://dn8t5p73w38t" path="res://art/DARK Edition/Sprites/Gunslinger Hero/Gun/Guns Sprite Sheet 32x32.png" id="1_ob7by"]
-[ext_resource type="Script" path="res://scenes/gun1/gun_1.gd" id="2_y27cs"]
+[ext_resource type="Texture2D" uid="uid://dn8t5p73w38t" path="res://art/DARK Edition/Sprites/Gunslinger Hero/Gun/Guns Sprite Sheet 32x32.png" id="1_axse8"]
+[ext_resource type="Script" path="res://scenes/player_characters/Gunslinger/gun1/gun_1.gd" id="2_nr4ak"]
 
 [sub_resource type="Animation" id="Animation_posbt"]
 length = 0.001
@@ -60,12 +60,12 @@ _data = {
 
 [node name="Gun1" type="Sprite2D"]
 position = Vector2(226, 108)
-texture = ExtResource("1_ob7by")
+texture = ExtResource("1_axse8")
 offset = Vector2(12, 0)
 hframes = 4
 vframes = 5
 frame = 4
-script = ExtResource("2_y27cs")
+script = ExtResource("2_nr4ak")
 
 [node name="Barrel" type="Marker2D" parent="."]
 unique_name_in_owner = true
