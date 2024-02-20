@@ -7,9 +7,12 @@ class_name Player
 const SPEED = 150.0
 const JUMP_VELOCITY = -200.0
 
+var is_wall_sliding = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var wall_slide_gravity = 20
+var wall_jump_pushback = 200
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -24,9 +27,17 @@ func _physics_process(delta):
 	animation_tree["parameters/Falling/blend_position"] = get_local_mouse_position()
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		state_machine.travel("Jump_up")
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		if is_on_wall() and Input.is_action_pressed("move_left"):
+			velocity.y = JUMP_VELOCITY
+			velocity.x = wall_jump_pushback
+			print(velocity.x)
+		if is_on_wall() and Input.is_action_pressed("move_right"):
+			velocity.y = JUMP_VELOCITY
+			velocity.x = -wall_jump_pushback
+		move_and_slide()
 	
 	var orig_y = velocity.y
 	if is_on_floor() == false:
@@ -51,4 +62,15 @@ func _physics_process(delta):
 		if is_on_floor():
 			state_machine.travel("Idle")
 	move_and_slide()
+	wall_slide(delta)
 
+func wall_slide(delta):
+	if is_on_wall() and !is_on_floor():
+		if Input.is_action_pressed("move_left"):
+			velocity.y += (wall_slide_gravity * delta)
+			velocity.y = min(velocity.y, wall_slide_gravity)
+			state_machine.travel("Wall_slide_left")
+		if Input.is_action_pressed("move_right"):
+			velocity.y += (wall_slide_gravity * delta)
+			velocity.y = min(velocity.y, wall_slide_gravity)
+			state_machine.travel("Wall_slide_right")
